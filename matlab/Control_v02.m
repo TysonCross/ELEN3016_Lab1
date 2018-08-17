@@ -12,7 +12,7 @@ set(0,'defaultTextFontName', fontName);
 
 % Alternative Method:
 num = 1;                      % Assume Unity gain
-den = [1,10,24,-1];           % Feedback (with negative unity gain)
+den = [1,10,24,1];           % Feedback (with negative unity gain)
 sys = tf(num,den)
 ssys = tf2ss(num,den);
 
@@ -29,3 +29,5 @@ figure(3)
 stepplot(sys)
 title(gca,{"Step Response of system"});
 S = stepinfo(sys)
+
+bode(sys)
